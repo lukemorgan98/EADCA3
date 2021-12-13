@@ -12,7 +12,7 @@ namespace TestCA3
 {
     public class UnitTest1
     {
-        [Fact]
+       /* [Fact]
         public void IndexComponentDoesntRenderCorrectly()
         {
             // Arrange
@@ -42,11 +42,11 @@ namespace TestCA3
            
 
             await Task.CompletedTask;
-
+            
 
            
 
 
-        }
+        }*/
     }
 }
