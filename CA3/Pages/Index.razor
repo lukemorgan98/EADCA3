@@ -3,12 +3,12 @@
 
 @if (Main == null)
 {
-    <p>Have ran into a problem the api can be called can only make 10 request</p>    
+    <p>error Limit 10 request per mintue</p>    
 }
 else
 {
     <div class="mb-5 p-5">
-        Choose a league that you would want to see for:
+           Pick a leagie that you want to view:
         <select class="form-control" @bind="League" @onclick="@GetTaskAsync">
             <option selected disabled value = "-1">Choose a League</option>
             <option value=PL>Premier League</option>
@@ -43,16 +43,26 @@ else
     
 
     <tbody>
-         @foreach (var standing in Main.matches)
+         @foreach (var standing in Main.standings)
             {
-               
+                @foreach (var row in standing.table)
+                {
                     <tr>
+                        <td>@row.position</td>
                         <td>
-                            @standing.awayTeam.name
+                            <img src=@row.team.crestUrl style="width:2.3em; height:3em;"> &#8203; @row.team.name
                         </td>
+                        <td>@row.playedGames</td>
+                        <td>@row.won</td>
+                        <td>@row.draw</td>
+                        <td>@row.lost</td>
+                        <td>@row.goalsFor</td>
+                        <td>@row.goalsAgainst</td>
+                        <td>@row.goalDifference</td>
+                        <td>@row.points</td>
                     </tr>
+                }
             }
-        }
     </tbody>
   </table>
 }

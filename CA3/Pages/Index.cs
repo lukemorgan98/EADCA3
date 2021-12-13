@@ -17,7 +17,7 @@ namespace CA3.Pages
         {
             try
             {
-                string uri = "https://api.football-data.org/v2/matches";
+                string uri = "https://api.football-data.org/v2/competitions/" + League + "/standings?standingType=TOTAL"; ;
                 Main = await Http.GetJsonAsync<Root>(uri);
                 ErrorMessage = String.Empty;
             }

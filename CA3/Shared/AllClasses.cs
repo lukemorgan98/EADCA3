@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using CA3.Shared;
+
 
 namespace CA3.Shared
 {
     public class AllClasses
     {
-        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
-        public class Filters
+        public class Root
         {
-            public string matchday { get; set; }
+            public int count { get; set; }
+            public Filters filters { get; set; }
+            public Competition competition { get; set; }
+            public List<Match> matches { get; set; }
+            public Season season { get; set; }
+            public List<Standing> standings { get; set; }
         }
+
 
         public class Area
         {
@@ -34,6 +39,7 @@ namespace CA3.Shared
             public string startDate { get; set; }
             public string endDate { get; set; }
             public int currentMatchday { get; set; }
+            public object winner { get; set; }
         }
 
         public class Odds
@@ -43,14 +49,14 @@ namespace CA3.Shared
 
         public class FullTime
         {
-            public int homeTeam { get; set; }
-            public int awayTeam { get; set; }
+            public object homeTeam { get; set; }
+            public object awayTeam { get; set; }
         }
 
         public class HalfTime
         {
-            public int homeTeam { get; set; }
-            public int awayTeam { get; set; }
+            public object homeTeam { get; set; }
+            public object awayTeam { get; set; }
         }
 
         public class ExtraTime
@@ -67,7 +73,7 @@ namespace CA3.Shared
 
         public class Score
         {
-            public string winner { get; set; }
+            public object winner { get; set; }
             public string duration { get; set; }
             public FullTime fullTime { get; set; }
             public HalfTime halfTime { get; set; }
@@ -87,14 +93,6 @@ namespace CA3.Shared
             public string name { get; set; }
         }
 
-        public class Referee
-        {
-            public int id { get; set; }
-            public string name { get; set; }
-            public string role { get; set; }
-            public string nationality { get; set; }
-        }
-
         public class Match
         {
             public int id { get; set; }
@@ -103,31 +101,47 @@ namespace CA3.Shared
             public string status { get; set; }
             public int matchday { get; set; }
             public string stage { get; set; }
-            public object group { get; set; }
+            public string group { get; set; }
             public DateTime lastUpdated { get; set; }
             public Odds odds { get; set; }
             public Score score { get; set; }
             public HomeTeam homeTeam { get; set; }
             public AwayTeam awayTeam { get; set; }
-            public List<Referee> referees { get; set; }
-            public List<Match> match { get; set; }
+            public List<object> referees { get; set; }
         }
 
-        public class Root
+        public class Team
         {
-            public int count { get; set; }
-            public Filters filters { get; set; }
-            public Competition competition { get; set; }
-            public List<Match> matches { get; set; }
-           
+            public int id { get; set; }
+            public string name { get; set; }
+            public string crestUrl { get; set; }
         }
 
-      
+        public class Table
+        {
+            public int position { get; set; }
+            public Team team { get; set; }
+            public int playedGames { get; set; }
+            public string form { get; set; }
+            public int won { get; set; }
+            public int draw { get; set; }
+            public int lost { get; set; }
+            public int points { get; set; }
+            public int goalsFor { get; set; }
+            public int goalsAgainst { get; set; }
+            public int goalDifference { get; set; }
+        }
 
+        public class Standing
+        {
+            public string stage { get; set; }
+            public string type { get; set; }
+            public object group { get; set; }
+            public List<Table> table { get; set; }
+        }
 
-        
-
-
-
+        public class Filters
+        {
+        }
     }
-}
+  }
