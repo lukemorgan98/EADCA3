@@ -17,7 +17,9 @@ namespace CA3.Pages
         {
             try
             {
-                string uri = "https://api.football-data.org/v2/competitions/" + League + "/standings?standingType=TOTAL"; ;
+#pragma warning disable S1075 // URIs should not be hardcoded
+                string uri = "https://api.football-data.org/v2/competitions/" + League + "/standings?standingType=TOTAL";
+#pragma warning restore S1075 // URIs should not be hardcoded
                 Main = await Http.GetJsonAsync<Root>(uri);
                 ErrorMessage = String.Empty;
             }

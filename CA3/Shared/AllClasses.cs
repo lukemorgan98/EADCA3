@@ -5,7 +5,8 @@ using System.Collections.Generic;
 namespace CA3.Shared
 {
     public class AllClasses
-    {
+    { 
+        // converted JSON to C# 
         public class Root
         {
             public int count { get; set; }
