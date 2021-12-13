@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CA3.Shared;
 
 namespace CA3.Shared
 {
@@ -109,6 +110,7 @@ namespace CA3.Shared
             public HomeTeam homeTeam { get; set; }
             public AwayTeam awayTeam { get; set; }
             public List<Referee> referees { get; set; }
+            public List<Match> match { get; set; }
         }
 
         public class Root
@@ -117,7 +119,14 @@ namespace CA3.Shared
             public Filters filters { get; set; }
             public Competition competition { get; set; }
             public List<Match> matches { get; set; }
+           
         }
+
+      
+
+
+        
+
 
 
     }
